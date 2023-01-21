@@ -54,18 +54,15 @@ const solve = () => {
 
   // calling our own backend. We want to hide our API key
   // http://localhost:8000/solve for dev
-  fetch(
-    "https://coruscating-empanada-3055a5.netlify.app/.netlify/functions/api/solve",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      // body is going to the server
-      body: JSON.stringify(data),
-    }
-  )
+  fetch("https://sudoku-solver-api-five.vercel.app/solve", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    // body is going to the server
+    body: JSON.stringify(data),
+  })
     .then(async (response) => {
       await response.json();
     })
