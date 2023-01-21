@@ -53,10 +53,10 @@ const solve = () => {
   console.log("data", data);
 
   // calling our own backend. We want to hide our API key
+  // http://localhost:8000/solve for dev
   fetch(
     "https://coruscating-empanada-3055a5.netlify.app/.netlify/functions/api/solve",
     {
-      // http://localhost:8000/solve for dev
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,9 @@ const solve = () => {
       body: JSON.stringify(data),
     }
   )
-    .then((response) => response.json())
+    .then(async (response) => {
+      await response.json();
+    })
     .then((data) => {
       console.log(data);
       populateValues(data.solvable, data.solution);
