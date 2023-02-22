@@ -1,6 +1,6 @@
 const puzzleBoard = document.querySelector("#puzzle");
 const solveButton = document.querySelector("#solve-button");
-const solutionAndLoadingDisplay = document.querySelector("#solution");
+const solutionDisplay = document.querySelector("#solution");
 const squares = 81;
 let submission = [];
 
@@ -40,14 +40,14 @@ const populateValues = (isSolvable, solution) => {
     inputs.forEach((input, i) => {
       input.value = solution[i];
     });
-    solutionAndLoadingDisplay.innerHTML = "Solved!";
+    solutionDisplay.innerHTML = "Solved!";
   } else {
-    solutionAndLoadingDisplay.innerHTML = "Not Solvable";
+    solutionDisplay.innerHTML = "Not Solvable";
   }
 };
 
 const solve = () => {
-  solutionAndLoadingDisplay.innerHTML = "Loading...";
+  solutionDisplay.innerHTML = "Loading...";
   joinValues();
   // data needs to be an object
   const data = { numbers: submission.join("") };
