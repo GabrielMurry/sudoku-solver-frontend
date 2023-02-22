@@ -57,9 +57,9 @@ const solve = () => {
   fetch("https://sudoku-solver-backend.adaptable.app/solve", {
     method: "POST",
     mode: "cors",
+    credentials: "include",
     headers: {
       "Content-Type": "application/json",
-      Accept: "application/json",
     },
     // body is going to the server
     body: JSON.stringify(data),
