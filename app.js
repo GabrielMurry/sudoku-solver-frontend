@@ -54,8 +54,9 @@ const solve = () => {
 
   // calling our own backend. We want to hide our API key
   // http://localhost:8000/solve for dev
-  fetch("https://sudoku-solver-api-five.vercel.app/solve", {
+  fetch("https://sudoku-solver-backend.adaptable.app/solve", {
     method: "POST",
+    mode: "cors",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -63,11 +64,9 @@ const solve = () => {
     // body is going to the server
     body: JSON.stringify(data),
   })
-    .then(async (response) => {
-      await response.json();
-    })
+    .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log("Success: ", data);
       populateValues(data.solvable, data.solution);
       submission = [];
     })
