@@ -47,7 +47,6 @@ const populateValues = (isSolvable, solution) => {
 };
 
 const solve = () => {
-  solutionDisplay.innerHTML = "Loading...";
   joinValues();
   // data needs to be an object
   const data = { numbers: submission.join("") };
